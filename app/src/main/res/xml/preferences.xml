@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:key="user_height"
+        android:title="User Height"
+        android:summary="Enter user height in meters"
+        android:defaultValue="1.70" />
+
+    <ListPreference
+        android:key="measurement_system"
+        android:title="Measurement System"
+        android:summary="Select your preferred measurement system"
+        android:defaultValue="metric"
+        android:entries="@array/measurement_systems"
+        android:entryValues="@array/measurement_system_values" />
+
+</PreferenceScreen>

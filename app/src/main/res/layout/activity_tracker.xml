@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.geotracker.view_model.TrackerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.TrackerActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/trackerTitle"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.19">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_span="1"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/currentStats" />
+            </TableRow>
+
+            <TableRow
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:gravity="center"></TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_marginEnd="20dp"
+                    android:layout_span="1"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/col1Txt" />
+
+                <TextView
+                    android:id="@+id/dayTxtView"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_span="1"
+                    android:layout_weight="1"
+                    android:text="@{viewModel.dayDis.toString() + viewModel.distanceUnit}" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_marginEnd="20dp"
+                    android:layout_span="1"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/col3Txt" />
+
+                <TextView
+                    android:id="@+id/monthTxtView"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_span="1"
+                    android:layout_weight="1"
+                    android:text="@{viewModel.monthDis.toString() + viewModel.distanceUnit}" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_marginEnd="20dp"
+                    android:layout_span="1"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/col5Txt" />
+
+                <TextView
+                    android:id="@+id/yearTxtView"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_span="1"
+                    android:layout_weight="1"
+                    android:text="@{viewModel.yearDis.toString() + viewModel.distanceUnit}" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_marginEnd="20dp"
+                    android:layout_span="1"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/col6Txt" />
+
+                <TextView
+                    android:id="@+id/totalTxtView"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_span="1"
+                    android:layout_weight="1"
+                    android:text="@{viewModel.averageDistance.toString() + viewModel.distanceUnit}" />
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="0.0">
+
+            <Button
+                android:id="@+id/stepBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/steps" />
+
+            <Button
+                android:id="@+id/mBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onMBtnClick"
+                android:text="@string/meters" />
+
+            <Button
+                android:id="@+id/kMBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onKMBtnClick"
+                android:text="@string/kilometres" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/calBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/calendar"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+            app:layout_constraintVertical_bias="0.65" />
+
+        <LinearLayout
+            android:id="@+id/bottomNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="#808080"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <Button
+                android:id="@+id/trackerBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tracking"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/pingBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/reminders"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/homeBtn"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/home" />
+
+            <Button
+                android:id="@+id/historyBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/history"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/settingsBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/settings"
+                android:textSize="8sp" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
